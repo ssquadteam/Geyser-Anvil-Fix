@@ -12,9 +12,9 @@ Finally get your Custom Enchants working with Anvils on Bedrock!
 
 # Proxy Setup (Checkout [ApiaryProxy](https://github.com/ssquadteam/ApiaryProxy) btw)
 
-Install Geyser on proxy
-Install floodgate on servers behind proxy and proxy [(more info, under "Proxy Servers" tab)](https://geysermc.org/wiki/floodgate/setup/)
-Install this plugin on servers behind the proxy (with [ProtocolLib](https://ci.dmulloy2.net/job/ProtocolLib/))
-Run servers to generate files/directories
-Move "GeyserAnvilFix-Mapping.json" (Located in this plugin's folder) to Geyser's "custom-mappings" folder
-Move "GeyserAnvilFix-Pack.mcpack" (same place) to Geyser's "packs" folder
+1. Install Geyser on proxy
+2. Install floodgate on servers behind proxy and proxy [(more info, under "Proxy Servers" tab)](https://geysermc.org/wiki/floodgate/setup/)
+3. Install this plugin on servers behind the proxy (with [ProtocolLib](https://ci.dmulloy2.net/job/ProtocolLib/))
+4. Run servers to generate files/directories
+5. Move "GeyserAnvilFix-Mapping.json" (Located in this plugin's folder) to Geyser's "custom-mappings" folder
+6. Move "GeyserAnvilFix-Pack.mcpack" (same place) to Geyser's "packs" folder
