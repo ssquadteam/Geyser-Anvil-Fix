@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+    id("xyz.jpenilla.run-paper") version "2.3.0"
+    id("io.papermc.paperweight.userdev") version "1.7.1"
+}
+
+group = 'net.ssquadteam'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+    maven {
+        url = uri("https://repo.opencollab.dev/main/")
+    }
+    maven { url "https://repo.dmulloy2.net/repository/public/" }
+}
+
+dependencies {
+    compileOnly('org.geysermc.geyser:api:2.2.0-SNAPSHOT')
+    compileOnly('org.geysermc.floodgate:api:2.2.2-SNAPSHOT')
+    paperweight.paperDevBundle("1.21-R0.1-SNAPSHOT")
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "5.1.0";
+}
+
+def targetJavaVersion = 21
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release.set(targetJavaVersion)
+    }
+}
+
+tasks {
+    assemble {
+        dependsOn(reobfJar)
+    }
+    runServer {
+        minecraftVersion("1.20.4")
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}

@@ -1,0 +1,12 @@
+
+anvil:
+  # When should the anvil get override with custom menu
+  # ENABLED - always override
+  # DISABLED - never override
+  mode: "ENABLED"
+
+  # Should there be a menu item to allow opening the default vanilla menu
+  forward: true
+
+# Used for debugging. This will spam the console
+debug: false
