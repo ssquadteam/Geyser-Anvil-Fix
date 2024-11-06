@@ -18,3 +18,6 @@ Finally get your Custom Enchants working with Anvils on Bedrock!
 4. Run servers to generate files/directories
 5. Move "GeyserAnvilFix-Mapping.json" (Located in this plugin's folder) to Geyser's "custom-mappings" folder
 6. Move "GeyserAnvilFix-Pack.mcpack" (same place) to Geyser's "packs" folder
+
+# Exclusive Credits to
+[Geyser Recipe Fix by Sideways Sky](https://github.com/Sideways-Sky/Geyser-Recipe-Fix)
