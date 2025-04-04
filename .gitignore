@@ -1,0 +1,10 @@
+.gradle/
+.idea/
+.vscode/
+.DS_Store
+.env
+.env.local
+build/
+bin/
+packetevents/
+packetevents-2.7.0/

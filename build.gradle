@@ -4,8 +4,10 @@ plugins {
     id("io.papermc.paperweight.userdev") version "1.7.1"
 }
 
-group = 'net.ssquadteam'
-version = '1.0.1'
+group = 'com.ssquadteam'
+version = '1.0.0'
+archivesBaseName = 'BedrockAnvil'
+sourceCompatibility = '21'
 
 repositories {
     mavenCentral()
@@ -18,16 +20,41 @@ repositories {
         url = "https://oss.sonatype.org/content/groups/public/"
     }
     maven {
-        url = uri("https://repo.opencollab.dev/main/")
+        url = uri("https://repo.opencollab.dev/maven-snapshots/")
+    }
+    maven {
+        url = uri("https://repo.opencollab.dev/maven-releases/")
     }
     maven { url "https://repo.dmulloy2.net/repository/public/" }
+    maven {
+        name = "codemc-releases"
+        url = "https://repo.codemc.io/repository/maven-releases/"
+    }
+    maven {
+        name = "codemc-snapshots"
+        url = "https://repo.codemc.io/repository/maven-snapshots/"
+    }
+    mavenLocal()
 }
 
 dependencies {
-    compileOnly('org.geysermc.geyser:api:2.2.0-SNAPSHOT')
-    compileOnly('org.geysermc.floodgate:api:2.2.2-SNAPSHOT')
     paperweight.paperDevBundle("1.21-R0.1-SNAPSHOT")
-    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "5.1.0";
+    
+    // Use the local JAR file for PacketEvents
+    implementation files('libs/packetevents-spigot-2.7.0.jar')
+    
+    // Include Geyser and Floodgate as compileOnly dependencies
+    compileOnly 'org.geysermc.geyser:api:2.2.0-SNAPSHOT'
+    compileOnly 'org.geysermc.floodgate:api:2.2.2-SNAPSHOT'
+}
+
+// Include the JAR dependencies in the final JAR
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 def targetJavaVersion = 21
@@ -41,8 +68,9 @@ java {
 }
 
 tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
-        options.release.set(targetJavaVersion)
+        options.release = targetJavaVersion
     }
 }
 

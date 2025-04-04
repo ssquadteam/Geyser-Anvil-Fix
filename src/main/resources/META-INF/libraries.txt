@@ -1,0 +1,10 @@
+# Required Libraries for BedrockAnvil
+
+1. PacketEvents 2.7.0 - https://github.com/retrooper/packetevents/releases/tag/v2.7.0
+   - com.github.retrooper:packetevents-spigot:2.7.0
+
+2. Geyser API - https://repo.opencollab.dev/main/org/geysermc/geyser/api/
+   - org.geysermc.geyser:api:2.2.0-SNAPSHOT
+
+3. Floodgate API - https://repo.opencollab.dev/main/org/geysermc/floodgate/api/
+   - org.geysermc.floodgate:api:2.2.2-SNAPSHOT 

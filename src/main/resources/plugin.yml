@@ -1,7 +1,8 @@
-name: Geyser-Anvil-Fix
+name: BedrockAnvil
 version: '${version}'
-main: net.ssquadteam.geyseranvilfix.Geyser_Anvil_Fix
-api-version: '1.20'
-softdepend:
-  - "floodgate"
-  - "Geyser-Spigot"
+main: com.ssquadteam.geyseranvilfix.GeyserAnvilFixPlugin
+api-version: '1.21'
+softdepend: [Geyser-Spigot, floodgate]
+description: Adds a custom anvil interface for Bedrock players
+author: SSQuadTeam
+website: https://github.com/ssquadteam
