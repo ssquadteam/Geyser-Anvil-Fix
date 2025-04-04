@@ -1,4 +1,4 @@
-name: BedrockAnvil
+name: GeyserAnvilFix
 version: '${version}'
 main: com.ssquadteam.geyseranvilfix.GeyserAnvilFixPlugin
 api-version: '1.21'

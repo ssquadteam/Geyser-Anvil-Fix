@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.ssquadteam'
 version = '1.0.0'
-archivesBaseName = 'BedrockAnvil'
+archivesBaseName = 'GeyserAnvilFix'
 sourceCompatibility = '21'
 
 repositories {
